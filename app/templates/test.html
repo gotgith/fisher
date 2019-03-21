@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}      {# 模板继承 #}
+{% block content %}               {# 继承位置的填充，仅是填充，不能真正的继承 #}
+    {{ super() }}                 {# 继承模板 #}
+    {{ data.age }}
+    {% for foo in [1,2,3] %}
+    {{ foo }}
+    {% set message = get_flashed_messages() %}   {# 消息闪现，set定义函数,不需要结束语，作用域为整个block；with需要结束语，作用在本函数内 #}
+    {{ message }}
+    {% endfor %}
+{% endblock %}
